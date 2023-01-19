@@ -1,9 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, unused_local_variable, non_constant_identifier_names, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, avoid_print, unused_element
 
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(
@@ -41,6 +38,15 @@ dynamic Folder(SW) {
                   color: Colors.black,
                 ),
               ),
+              SizedBox(width: 8),
+              Text(
+                "Folder",
+                style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                  fontSize: 22,
+                  color: Colors.white,
+                ),
+              )
             ],
           ),
         ),
