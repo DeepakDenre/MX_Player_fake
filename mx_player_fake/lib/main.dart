@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, unused_local_variable, non_constant_identifier_names, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, avoid_print, unused_element
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(
@@ -11,14 +14,38 @@ void main() {
   );
 }
 
-dynamic Folder(var w) {
-  return Container(
-    height: 70,
-    width: w,
-    decoration: BoxDecoration(
-      color: Color.fromARGB(255, 190, 190, 190),
-    ),
-    child: Text("Folder Name !"),
+dynamic Folder(SW) {
+  return Column(
+    children: [
+      SizedBox(height: 10),
+      Container(
+        height: 70,
+        width: SW * 0.95,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
+          onPressed: () {},
+          child: Row(
+            children: [
+              Container(
+                width: 65,
+                height: 65,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(8),
+                  ),
+                  color: Colors.white,
+                ),
+                child: Icon(
+                  Icons.folder,
+                  size: 45,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
+        ),
+      )
+    ],
   );
 }
 
@@ -47,8 +74,8 @@ class _MyAppState extends State<MyApp> {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color.fromARGB(255, 255, 255, 255),
-                  Color.fromARGB(255, 255, 221, 221)
+                  Color.fromARGB(255, 0, 0, 0),
+                  Color.fromARGB(255, 84, 0, 0)
                 ],
               ),
             ),
@@ -101,15 +128,18 @@ class _MyAppState extends State<MyApp> {
           ),
           //App Bar End
           //App Body Start
-          ListView(
-            children: [
-              Column(
-                children: [
-                  Folder(SW),
-                  Folder(SW),
-                ],
-              ),
-            ],
+          Container(
+            height: SH,
+            width: SW,
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                Folder(SW),
+                Folder(SW),
+                Folder(SW),
+                Folder(SW),
+              ],
+            ),
           ),
         ],
       ),
