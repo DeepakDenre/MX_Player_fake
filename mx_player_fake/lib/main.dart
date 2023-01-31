@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, unused_local_variable, non_constant_identifier_names, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, avoid_print, unused_element, override_on_non_overriding_member, annotate_overrides, sort_child_properties_last, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, unused_local_variable, non_constant_identifier_names, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, avoid_print, unused_element, override_on_non_overriding_member, annotate_overrides, sort_child_properties_last, avoid_unnecessary_containers, prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
 import 'package:mx_player_fake/demo.dart';
 import "dart:math";
+
 void main() {
   runApp(
     MaterialApp(
@@ -34,11 +35,15 @@ class _MyAppState extends State<MyApp> {
             style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 255, 255, 255)),
             onPressed: () {
-              setState(() {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Demo(),
-                ),);
-              },);
+              setState(
+                () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Demo(),
+                    ),
+                  );
+                },
+              );
             },
             child: Row(
               children: [
@@ -77,7 +82,7 @@ class _MyAppState extends State<MyApp> {
                       Row(
                         children: [
                           Text(
-                            "    Videos : "+(rng.nextInt(10)).toString(),
+                            "    Videos : " + (rng.nextInt(10)).toString(),
                             style: TS,
                           ),
                         ],
@@ -149,6 +154,19 @@ class _MyAppState extends State<MyApp> {
                 child: Row(
                   children: [
                     SizedBox(width: 10),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(40))),
+                      child: Icon(
+                        Icons.settings,
+                        size: 30,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                    SizedBox(width: 10),
                     Text(
                       "Setting",
                       style: TextStyle(
@@ -157,11 +175,40 @@ class _MyAppState extends State<MyApp> {
                           color: Colors.white),
                     ),
                     SizedBox(width: 10),
-                    Icon(
-                      Icons.settings,
-                      size: 30,
-                      color: Colors.white,
-                    )
+                  ],
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () {},
+              child: Container(
+                height: 50,
+                width: DW,
+                color: Colors.grey,
+                child: Row(
+                  children: [
+                    SizedBox(width: 10),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(40))),
+                      child: Icon(
+                        Icons.account_circle,
+                        size: 30,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      "Account",
+                      style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    SizedBox(width: 10),
                   ],
                 ),
               ),
